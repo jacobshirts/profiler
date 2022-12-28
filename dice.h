@@ -1,0 +1,1 @@
+int dice(int num_sides);

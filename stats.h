@@ -1,3 +1,6 @@
+#ifndef STATS_H
+#define STATS_H
+
 #include <map>
 #include <string>
 
@@ -14,3 +17,5 @@ class Stats
     private:
         map<string, int> stats;
 };
+
+#endif

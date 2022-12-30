@@ -1,34 +1,32 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "dice.h"
 #include "race.h"
 #include "stats.h"
+#include "player.h"
 
 using namespace std;
 
-string get_name()
+vector<Player> make_players(int player_num)
 {
-    string character_name;
-    string input = "n";
-    while(input == "n")
+    vector<Player> players;
+    for(int i=0;i<player_num;i++)
     {
-        cout << "\nEnter character name: ";
-        cin >> character_name;
-        cout << "You entered: " << character_name << "\nAre you sure about this name? (y/n) ";
-        cin >> input;
+        Player player = Player();
+        player.init();
+        players.push_back(player);
     }
-    return character_name;
-    
+
+    return players;
 }
 
 int main()
 {
-    Stats stats = Stats();
-    string character_name = get_name();
-    stats.make_stats();
-    int race_num = get_race();
-    Race *player_race = race_factory(race_num);
-    stats.set_stats(player_race->update_stats(stats.get_stats()));
-    stats.print_stats();
+    cout << "How many players do you want to make? ";
+    int player_num;
+    cin >> player_num;
+    vector<Player> players = make_players(player_num);
+    players[0].stats.print_stats();
 }
 

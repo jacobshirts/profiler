@@ -1,3 +1,6 @@
+#ifndef RACE_H
+#define RACE_H
+
 #include <iostream>
 #include <string>
 #include <map>
@@ -37,3 +40,5 @@ class Gnome: public Race
 Race* race_factory(int race_num);
 
 int get_race();
+
+#endif
